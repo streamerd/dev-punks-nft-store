@@ -322,16 +322,7 @@ function App() {
                 textAlign: "center",
               }}
             >
-              <StyledButton
-                onClick={(e) => {
-                  window.open("/config/roadmap.pdf", "_blank");
-                }}
-                style={{
-                  margin: "5px",
-                }}
-              >
-                Roadmap
-              </StyledButton>
+
               <StyledButton
                 style={{
                   margin: "5px",
@@ -340,7 +331,7 @@ function App() {
                   window.open(CONFIG.MARKETPLACE_LINK, "_blank");
                 }}
               >
-                {CONFIG.MARKETPLACE}
+                @ {CONFIG.MARKETPLACE}
               </StyledButton>
             </span>
             <s.SpacerSmall />
