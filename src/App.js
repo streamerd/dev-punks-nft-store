@@ -222,36 +222,19 @@ function App() {
 
   return (
     <s.Screen>
-
-<s.Container  flex={1}
+      <s.Container
+        flex={1}
         ai={"center"}
         style={{ padding: 24, backgroundColor: "var(--primary)" }}
         // image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.png" : null}
-        >
-
-          
-<a href={"#"}>
+      >
+        <a href={"#"}>
           <StyledLogo
             alt={"logo"}
             src={"/config/images/devpunks-textual.png"}
           />
         </a>
-        <a href={"https://discord.gg/Q2wWPVcQ6k"}>
-            <StyledDiscordLogo
-              alt={"logo"}
-              src={"/config/images/discord-logo.svg"}
-            />
-          </a>
-
-          <a href={"https://github.com/BlockDevsUnited/dev-punks"}>
-            <StyledGithubLogo
-              alt={"logo"}
-              src={"/config/images/github-logo.png"}
-            />
-          </a>
-
-        
-</s.Container>
+      </s.Container>
 
       <s.Container
         flex={1}
@@ -259,30 +242,13 @@ function App() {
         style={{ padding: 24, backgroundColor: "var(--primary)" }}
         image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.png" : null}
       >
-
-        
-        <a href={CONFIG.MARKETPLACE_LINK}>
-          <StyledLogo alt={"logo"} src={"/config/images/logo.gif"} />
-        </a>
+        <StyledLogo alt={"logo"} src={"/config/images/logo.gif"} />
         <s.SpacerLarge />
-
- 
-       
-
-        {/* <a href={"#"}>
-          <StyledLogo
-            alt={"logo"}
-            src={"/config/images/devpunks-textual.png"}
-          />
-        </a> */}
 
         <s.SpacerSmall />
         <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
           <s.Container flex={1} jc={"center"} ai={"center"}>
-
-
             <StyledImg alt={"example"} src={"/config/images/example2.gif"} />
-            
           </s.Container>
           <s.SpacerLarge />
           <s.Container
@@ -309,6 +275,7 @@ function App() {
             </s.TextTitle>
             <s.TextDescription
               style={{
+                fontSize: "42px",
                 textAlign: "center",
                 color: "var(--primary-text)",
               }}
@@ -322,7 +289,6 @@ function App() {
                 textAlign: "center",
               }}
             >
-
               <StyledButton
                 style={{
                   margin: "5px",
@@ -343,7 +309,11 @@ function App() {
                   The sale has ended.
                 </s.TextTitle>
                 <s.TextDescription
-                  style={{ textAlign: "center", color: "var(--accent-text)" }}
+                  style={{
+                    textAlign: "center",
+                    color: "var(--accent-text)",
+                    fontSize: "42px",
+                  }}
                 >
                   You can still find {CONFIG.NFT_NAME} on
                 </s.TextDescription>
@@ -362,22 +332,18 @@ function App() {
                 </s.TextTitle>
                 <s.SpacerXSmall />
                 <s.TextDescription
-                  style={{ textAlign: "center", color: "var(--accent-text)" }}
+                  style={{
+                    textAlign: "center",
+                    color: "var(--accent-text)",
+                    fontSize: "22px",
+                  }}
                 >
-                  Excluding gas fees.
+                  ( excluding gas fees )
                 </s.TextDescription>
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
                 blockchain.smartContract === null ? (
                   <s.Container ai={"center"} jc={"center"}>
-                    <s.TextDescription
-                      style={{
-                        textAlign: "center",
-                        color: "var(--accent-text)",
-                      }}
-                    >
-                      Connect to the {CONFIG.NETWORK.NAME} network
-                    </s.TextDescription>
                     <s.SpacerSmall />
                     <StyledButton
                       onClick={(e) => {
@@ -388,6 +354,16 @@ function App() {
                     >
                       CONNECT
                     </StyledButton>
+                    <s.SpacerSmall />
+
+                    <s.TextDescription
+                      style={{
+                        textAlign: "center",
+                        color: "var(--accent-text)",
+                      }}
+                    >
+                      Connect to the {CONFIG.NETWORK.NAME} network
+                    </s.TextDescription>
                     {blockchain.errorMsg !== "" ? (
                       <>
                         <s.SpacerSmall />
@@ -465,8 +441,6 @@ function App() {
           </s.Container>
           <s.SpacerLarge />
           <s.Container flex={1} jc={"center"} ai={"center"}>
-
-        
             <StyledImg
               alt={"example"}
               src={"/config/images/example3.gif"}
@@ -476,42 +450,128 @@ function App() {
         </ResponsiveWrapper>
         <s.SpacerMedium />
         <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
-          <s.TextDescription
+        
+        
+        <s.TextDescription
             style={{
               textAlign: "center",
               color: "var(--primary-text)",
+              fontSize: "22px"
             }}
           >
-            Please make sure you are connected to the right network (
-            {CONFIG.NETWORK.NAME}).
-            <br></br> Please note: Once you make the purchase, you cannot undo
+            Once you make the purchase, you cannot undo
             this action.
           </s.TextDescription>
-          <s.SpacerSmall />
+          <s.SpacerLarge />
           <s.TextDescription
             style={{
               textAlign: "center",
               color: "var(--primary-text)",
+              fontSize: "22px"
             }}
           >
-            We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract to
+            Please make sure you are connected to 
+            
+          </s.TextDescription>
+          <s.SpacerSmall />
+
+          <s.TextDescription
+            style={{
+              textAlign: "center",
+              color: "var(--primary-text)",
+              fontSize: "22px"
+            }}
+          >
+            the right network (
+            {CONFIG.NETWORK.NAME}).
+            
+          </s.TextDescription>
+          <s.SpacerSmall />
+
+
+          <s.TextDescription
+            style={{
+              textAlign: "center",
+              color: "var(--primary-text)",
+              fontSize: "22px"
+
+            }}
+          >
+            We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract
+          </s.TextDescription>
+
+          <s.TextDescription
+            style={{
+              textAlign: "center",
+              color: "var(--primary-text)",
+              fontSize: "22px"
+
+            }}
+          >
+            to
             successfully mint your NFT. <br></br>
             We recommend that you don't lower the gas limit.
           </s.TextDescription>
           <s.SpacerSmall />
 
-       
+          <s.SpacerLarge />
+
           <s.TextDescription
             style={{
               textAlign: "center",
               color: "var(--primary-text)",
             }}
           >
-            by
+            by collaboration @
           </s.TextDescription>
+          <s.SpacerLarge />
 
           <a href={"https://discord.gg/Q2wWPVcQ6k"}>
-            <StyledBDULogo alt={"logo"} src={"/config/images/bdu-logo.png"} />
+            <StyledBDULogo
+              alt={"logo"}
+              src={"/config/images/bdu-logo.png"}
+              target={"_blank"}
+            />
+          </a>
+          <s.SpacerLarge />
+
+          <a href={"https://discord.gg/Q2wWPVcQ6k"}>
+            <StyledDiscordLogo
+              alt={"logo"}
+              src={"/config/images/discord-logo.svg"}
+            />
+          </a>
+          <s.SpacerLarge />
+
+          <a
+            href={"https://github.com/BlockDevsUnited/dev-punks"}
+            target={"_blank"}
+          >
+            <StyledGithubLogo
+              alt={"logo"}
+              src={"/config/images/github-logo.png"}
+            />
+          </a>
+          <s.SpacerLarge />
+
+          <s.TextDescription
+            style={{
+              textAlign: "center",
+              color: "var(--primary-text)",
+            }}
+          >
+            hosted on
+          </s.TextDescription>
+          <a
+            href={
+              "https://ipfs.fleek.co/ipfs/QmQKEXmXHsXi7RZdte3b3zdV8ejfKJyxUfXqGrtN7P2wZg/"
+            }
+            target={"_blank"}
+          >
+            <StyledGithubLogo
+              alt={"logo"}
+              src={"/config/images/ipfs-logo-vector.svg"}
+            />
           </a>
         </s.Container>
       </s.Container>
