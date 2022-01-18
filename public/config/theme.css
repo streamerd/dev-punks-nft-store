@@ -2,7 +2,17 @@
   --primary: #ebc908;
   --primary-text: #ffffff;
   --secondary: #ff1dec;
+  --buttons-primary: #09080a;
   --secondary-text: #ffffff;
   --accent: #505050;
   --accent-text: #ffffff;
+}
+
+/* * {
+  background-color: #505050;
+} */
+
+#canvas {
+  width: 50%;
+  height: 50%;
 }

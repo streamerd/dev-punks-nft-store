@@ -10,13 +10,13 @@ const truncate = (input, len) =>
 
 export const StyledButton = styled.button`
   padding: 10px;
-  border-radius: 50px;
+  border-radius: 42px;
   border: none;
-  background-color: var(--secondary);
+  background-color: var(--buttons-primary);
   padding: 10px;
   font-weight: bold;
   color: var(--secondary-text);
-  width: 100px;
+  width: 142px;
   cursor: pointer;
   box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
   -webkit-box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
@@ -35,10 +35,10 @@ export const StyledRoundButton = styled.button`
   background-color: var(--primary);
   padding: 10px;
   font-weight: bold;
-  font-size: 15px;
-  color: var(--primary-text);
-  width: 30px;
-  height: 30px;
+  font-size: 24px;
+  color: #black;
+  width: 42px;
+  height: 42px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -69,6 +69,33 @@ export const StyledLogo = styled.img`
   width: 200px;
   @media (min-width: 767px) {
     width: 300px;
+  }
+  transition: width 0.5s;
+  transition: height 0.5s;
+`;
+
+export const StyledBDULogo = styled.img`
+  width: 100px;
+  @media (min-width: 767px) {
+    width: 100px;
+  }
+  transition: width 0.5s;
+  transition: height 0.5s;
+`;
+
+export const StyledGithubLogo = styled.img`
+  width: 60px;
+  @media (min-width: 767px) {
+    width: 60px;
+  }
+  transition: width 0.5s;
+  transition: height 0.5s;
+`;
+
+export const StyledDiscordLogo = styled.img`
+  width: 180px;
+  @media (min-width: 767px) {
+    width: 180px;
   }
   transition: width 0.5s;
   transition: height 0.5s;
@@ -195,19 +222,67 @@ function App() {
 
   return (
     <s.Screen>
+
+<s.Container  flex={1}
+        ai={"center"}
+        style={{ padding: 24, backgroundColor: "var(--primary)" }}
+        // image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.png" : null}
+        >
+
+          
+<a href={"#"}>
+          <StyledLogo
+            alt={"logo"}
+            src={"/config/images/devpunks-textual.png"}
+          />
+        </a>
+        <a href={"https://discord.gg/Q2wWPVcQ6k"}>
+            <StyledDiscordLogo
+              alt={"logo"}
+              src={"/config/images/discord-logo.svg"}
+            />
+          </a>
+
+          <a href={"https://github.com/BlockDevsUnited/dev-punks"}>
+            <StyledGithubLogo
+              alt={"logo"}
+              src={"/config/images/github-logo.png"}
+            />
+          </a>
+
+        
+</s.Container>
+
       <s.Container
         flex={1}
         ai={"center"}
         style={{ padding: 24, backgroundColor: "var(--primary)" }}
         image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.png" : null}
       >
+
+        
         <a href={CONFIG.MARKETPLACE_LINK}>
-          <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
+          <StyledLogo alt={"logo"} src={"/config/images/logo.gif"} />
         </a>
+        <s.SpacerLarge />
+
+ 
+       
+
+        {/* <a href={"#"}>
+          <StyledLogo
+            alt={"logo"}
+            src={"/config/images/devpunks-textual.png"}
+          />
+        </a> */}
+
         <s.SpacerSmall />
         <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
           <s.Container flex={1} jc={"center"} ai={"center"}>
-            <StyledImg alt={"example"} src={"/config/images/example.gif"} />
+
+
+            <StyledImg alt={"example"} src={"/config/images/example2.gif"} />
+            
           </s.Container>
           <s.SpacerLarge />
           <s.Container
@@ -388,7 +463,7 @@ function App() {
                           getData();
                         }}
                       >
-                        {claimingNft ? "BUSY" : "BUY"}
+                        {claimingNft ? "BUSY" : "MINT & GET"}
                       </StyledButton>
                     </s.Container>
                   </>
@@ -399,9 +474,11 @@ function App() {
           </s.Container>
           <s.SpacerLarge />
           <s.Container flex={1} jc={"center"} ai={"center"}>
+
+        
             <StyledImg
               alt={"example"}
-              src={"/config/images/example.gif"}
+              src={"/config/images/example3.gif"}
               style={{ transform: "scaleX(-1)" }}
             />
           </s.Container>
@@ -415,8 +492,9 @@ function App() {
             }}
           >
             Please make sure you are connected to the right network (
-            {CONFIG.NETWORK.NAME} Mainnet) and the correct address. Please note:
-            Once you make the purchase, you cannot undo this action.
+            {CONFIG.NETWORK.NAME}).
+            <br></br> Please note: Once you make the purchase, you cannot undo
+            this action.
           </s.TextDescription>
           <s.SpacerSmall />
           <s.TextDescription
@@ -426,9 +504,24 @@ function App() {
             }}
           >
             We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract to
-            successfully mint your NFT. We recommend that you don't lower the
-            gas limit.
+            successfully mint your NFT. <br></br>
+            We recommend that you don't lower the gas limit.
           </s.TextDescription>
+          <s.SpacerSmall />
+
+       
+          <s.TextDescription
+            style={{
+              textAlign: "center",
+              color: "var(--primary-text)",
+            }}
+          >
+            by
+          </s.TextDescription>
+
+          <a href={"https://discord.gg/Q2wWPVcQ6k"}>
+            <StyledBDULogo alt={"logo"} src={"/config/images/bdu-logo.png"} />
+          </a>
         </s.Container>
       </s.Container>
     </s.Screen>
