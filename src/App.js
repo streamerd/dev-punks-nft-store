@@ -101,6 +101,15 @@ export const StyledDiscordLogo = styled.img`
   transition: height 0.5s;
 `;
 
+export const StyledMetamaskLogo = styled.img`
+  width: 46px;
+  @media (min-width: 767px) {
+    width: 46px;
+  }
+  transition: width 0.5s;
+  transition: height 0.5s;
+`;
+
 export const StyledImg = styled.img`
   box-shadow: 0px 5px 11px 2px rgba(0, 0, 0, 0.7);
   border: 4px dashed var(--secondary);
@@ -352,9 +361,14 @@ function App() {
                         getData();
                       }}
                     >
-                      CONNECT
+                      connect
+                      <StyledMetamaskLogo
+                        alt={"metamask connect logo"}
+                        src={"/config/images/metamask-custom-fox.svg"}
+                        target={"_blank"}
+                      />
                     </StyledButton>
-                    <s.SpacerSmall />
+                    <s.SpacerMedium />
 
                     <s.TextDescription
                       style={{
@@ -450,28 +464,24 @@ function App() {
         </ResponsiveWrapper>
         <s.SpacerMedium />
         <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
-        
-        
-        <s.TextDescription
+          <s.TextDescription
             style={{
               textAlign: "center",
               color: "var(--primary-text)",
-              fontSize: "22px"
+              fontSize: "22px",
             }}
           >
-            Once you make the purchase, you cannot undo
-            this action.
+            Once you make the purchase, you cannot undo this action.
           </s.TextDescription>
           <s.SpacerLarge />
           <s.TextDescription
             style={{
               textAlign: "center",
               color: "var(--primary-text)",
-              fontSize: "22px"
+              fontSize: "22px",
             }}
           >
-            Please make sure you are connected to 
-            
+            Please make sure you are connected to
           </s.TextDescription>
           <s.SpacerSmall />
 
@@ -479,22 +489,18 @@ function App() {
             style={{
               textAlign: "center",
               color: "var(--primary-text)",
-              fontSize: "22px"
+              fontSize: "22px",
             }}
           >
-            the right network (
-            {CONFIG.NETWORK.NAME}).
-            
+            the right network ({CONFIG.NETWORK.NAME}).
           </s.TextDescription>
           <s.SpacerSmall />
-
 
           <s.TextDescription
             style={{
               textAlign: "center",
               color: "var(--primary-text)",
-              fontSize: "22px"
-
+              fontSize: "22px",
             }}
           >
             We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract
@@ -504,12 +510,10 @@ function App() {
             style={{
               textAlign: "center",
               color: "var(--primary-text)",
-              fontSize: "22px"
-
+              fontSize: "22px",
             }}
           >
-            to
-            successfully mint your NFT. <br></br>
+            to successfully mint your NFT. <br></br>
             We recommend that you don't lower the gas limit.
           </s.TextDescription>
           <s.SpacerSmall />
@@ -550,6 +554,28 @@ function App() {
             <StyledGithubLogo
               alt={"logo"}
               src={"/config/images/github-logo.png"}
+            />
+          </a>
+
+          <s.SpacerSmall />
+
+          <s.TextDescription
+            style={{
+              textAlign: "center",
+              color: "var(--primary-text)",
+            }}
+          >
+            made with
+          </s.TextDescription>
+            <s.SpacerSmall/>
+          <a
+            href={"https://github.com/HashLips/hashlips_art_engine"}
+            target={"_blank"}
+            color="white"
+          >
+            <StyledGithubLogo
+              alt={"logo"}
+              src={"/config/images/hashLips.png"}
             />
           </a>
           <s.SpacerLarge />
