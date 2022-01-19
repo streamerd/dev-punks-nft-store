@@ -65,6 +65,54 @@ export const ResponsiveWrapper = styled.div`
   }
 `;
 
+export const MetamaskConnectButton = styled.button`
+  padding: 12px;
+  border-radius: 20%;
+  border: none;
+  background-color: var(--metamask-button-bg);
+  font-weight: bold;
+  font-size: 24px;
+  color: #white;
+  width: 180px;
+  height: 62px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 0px -2px rgba(250, 250, 250, 0.3);
+  -webkit-box-shadow: 0px 4px 0px -2px rgba(250, 250, 250, 0.3);
+  -moz-box-shadow: 0px 4px 0px -2px rgba(250, 250, 250, 0.3);
+  :active {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
+`;
+
+export const OpenseaButton = styled.button`
+  padding: 10px;
+  border-radius: 60%;
+  border: none;
+  background-color: var(--opensea-bagel);
+  padding: 10px;
+  font-weight: bold;
+  font-size: 24px;
+  width: 106px;
+  height: 106px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 0px -2px rgba(250, 250, 250, 0.3);
+  -webkit-box-shadow: 0px 4px 0px -2px rgba(250, 250, 250, 0.3);
+  -moz-box-shadow: 0px 4px 0px -2px rgba(250, 250, 250, 0.3);
+  :active {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
+`;
+
 export const StyledLogo = styled.img`
   width: 200px;
   @media (min-width: 767px) {
@@ -105,6 +153,24 @@ export const StyledMetamaskLogo = styled.img`
   width: 46px;
   @media (min-width: 767px) {
     width: 46px;
+  }
+  transition: width 0.5s;
+  transition: height 0.5s;
+`;
+
+export const StyledHashiLipsLogo = styled.img`
+  width: 140px;
+  @media (min-width: 767px) {
+    width: 140px;
+  }
+  transition: width 0.5s;
+  transition: height 0.5s;
+`;
+
+export const StyledOpenseaLogo = styled.img`
+  width: 92px;
+  @media (min-width: 767px) {
+    width: 92px;
   }
   transition: width 0.5s;
   transition: height 0.5s;
@@ -235,7 +301,6 @@ function App() {
         flex={1}
         ai={"center"}
         style={{ padding: 24, backgroundColor: "var(--primary)" }}
-        // image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.png" : null}
       >
         <a href={"#"}>
           <StyledLogo
@@ -298,7 +363,7 @@ function App() {
                 textAlign: "center",
               }}
             >
-              <StyledButton
+              <OpenseaButton
                 style={{
                   margin: "5px",
                 }}
@@ -306,8 +371,11 @@ function App() {
                   window.open(CONFIG.MARKETPLACE_LINK, "_blank");
                 }}
               >
-                @ {CONFIG.MARKETPLACE}
-              </StyledButton>
+                <StyledOpenseaLogo
+                  alt={"logo"}
+                  src={"/config/images/opensea-logo.svg"}
+                />
+              </OpenseaButton>
             </span>
             <s.SpacerSmall />
             {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
@@ -336,7 +404,7 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{" "}
+                  1 {CONFIG.SYMBOL.toLowerCase()} costs {CONFIG.DISPLAY_COST}{" "}
                   {CONFIG.NETWORK.SYMBOL}.
                 </s.TextTitle>
                 <s.SpacerXSmall />
@@ -354,7 +422,7 @@ function App() {
                 blockchain.smartContract === null ? (
                   <s.Container ai={"center"} jc={"center"}>
                     <s.SpacerSmall />
-                    <StyledButton
+                    <MetamaskConnectButton
                       onClick={(e) => {
                         e.preventDefault();
                         dispatch(connect());
@@ -367,20 +435,54 @@ function App() {
                         src={"/config/images/metamask-custom-fox.svg"}
                         target={"_blank"}
                       />
-                    </StyledButton>
+                    </MetamaskConnectButton>
                     <s.SpacerMedium />
 
                     <s.TextDescription
                       style={{
                         textAlign: "center",
+                        fontSize: "24px",
                         color: "var(--accent-text)",
                       }}
                     >
-                      Connect to the {CONFIG.NETWORK.NAME} network
+                      this DApp is currently running @
+                      <a
+                        style={{ color: "var(--accent-text)" }}
+                        href={"https://www.rinkeby.io/#stats"}
+                      >
+                        {CONFIG.NETWORK.NAME}
+                      </a>
                     </s.TextDescription>
+                    <s.SpacerMedium />
+
+                    <s.TextDescription
+                      style={{
+                        textAlign: "center",
+                        fontSize: "24px",
+                        color: "var(--accent-text)",
+                      }}
+                    >
+                      <a
+                        style={{ color: "var(--accent-text)" }}
+                        href={"https://www.rinkeby.io/#stats"}
+                      >
+                        Here
+                      </a>
+                      ? how to connect your metamask to Rinkeby testnet
+                      <s.SpacerSmall />
+                      <a
+                        style={{ color: "var(--accent-text)" }}
+                        href={"https://www.rinkeby.io/#stats"}
+                      >
+                        Here
+                      </a>
+                      ? how to get test ethereum from their faucet
+                    </s.TextDescription>
+
                     {blockchain.errorMsg !== "" ? (
                       <>
                         <s.SpacerSmall />
+
                         <s.TextDescription
                           style={{
                             textAlign: "center",
@@ -567,13 +669,12 @@ function App() {
           >
             made with
           </s.TextDescription>
-            <s.SpacerSmall/>
           <a
             href={"https://github.com/HashLips/hashlips_art_engine"}
             target={"_blank"}
             color="white"
           >
-            <StyledGithubLogo
+            <StyledHashiLipsLogo
               alt={"logo"}
               src={"/config/images/hashLips.png"}
             />
@@ -599,6 +700,26 @@ function App() {
               src={"/config/images/ipfs-logo-vector.svg"}
             />
           </a>
+          <s.SpacerMedium />
+
+          <a href={"#"}>
+            <StyledLogo
+              alt={"logo"}
+              src={"/config/images/devpunks-textual.png"}
+            />
+          </a>
+
+          <s.SpacerSmall />
+          <s.TextDescription
+            style={{
+              fontSize: "26px",
+              textAlign: "center",
+              color: "var(--primary-text)",
+            }}
+          >
+            
+            2021 {">>"} ♾️
+          </s.TextDescription>
         </s.Container>
       </s.Container>
     </s.Screen>

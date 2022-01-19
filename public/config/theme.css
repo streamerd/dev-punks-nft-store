@@ -6,11 +6,9 @@
   --secondary-text: #ffffff;
   --accent: #505050;
   --accent-text: #ffffff;
+  --metamask-button-bg: #72d448;
+  --opensea-bagel: #1b87cf;
 }
-
-/* * {
-  background-color: #505050;
-} */
 
 #canvas {
   width: 50%;
