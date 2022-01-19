@@ -433,10 +433,10 @@ function App() {
                       <StyledMetamaskLogo
                         alt={"metamask connect logo"}
                         src={"/config/images/metamask-custom-fox.svg"}
-                        target={"_blank"}
                       />
                     </MetamaskConnectButton>
-                    <s.SpacerMedium />
+                    <s.SpacerLarge />
+                    <s.SpacerLarge />
 
                     <s.TextDescription
                       style={{
@@ -449,6 +449,7 @@ function App() {
                       <a
                         style={{ color: "var(--accent-text)" }}
                         href={"https://www.rinkeby.io/#stats"}
+                        target={"_blank"}
                       >
                         {CONFIG.NETWORK.NAME}
                       </a>
@@ -464,19 +465,21 @@ function App() {
                     >
                       <a
                         style={{ color: "var(--accent-text)" }}
-                        href={"https://www.rinkeby.io/#stats"}
+                        href={"https://medium.com/compound-finance/the-beginners-guide-to-using-an-ethereum-test-network-95bbbc85fc1d"}
+                        target={"_blank"}
                       >
-                        Here
+                        here
                       </a>
-                      ? how to connect your metamask to Rinkeby testnet
+                      , a guide on how to connect metamask to testnets
                       <s.SpacerSmall />
                       <a
                         style={{ color: "var(--accent-text)" }}
-                        href={"https://www.rinkeby.io/#stats"}
+                        href={"https://www.rinkeby.io/#faucet"}
+                        target={"_blank"}
                       >
-                        Here
+                        and here
                       </a>
-                      ? how to get test ethereum from their faucet
+                      , is Rinkeby faucet, where we get ethereum for dev purposes.
                     </s.TextDescription>
 
                     {blockchain.errorMsg !== "" ? (
